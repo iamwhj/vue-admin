@@ -13,6 +13,10 @@ export default {
     ...mapGetters([
       'name'
     ])
+  },
+  created() {
+    this.$store.commit('user/SET_NAME', 'super admin')
+    // console.log(this.$store)
   }
 }
 </script>

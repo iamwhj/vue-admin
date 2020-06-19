@@ -158,6 +158,21 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/role',
+    component: Layout,
+    meta: { title: '测试组件', icon: 'link' },
+    redirect: '/role/text',
+    children: [{
+      path: 'text',
+      component: () => import('../views/text'),
+      meta: { title: '测试组件1' }
+    }, {
+      path: 'estoppe',
+      component: () => import('../views/text/estoppe.vue'),
+      meta: { title: '禁言管理' }
+    }]
+  },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

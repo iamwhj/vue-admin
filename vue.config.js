@@ -2,6 +2,8 @@
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
 
+const remoteServerPath = "http://localhost:3000";
+
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
@@ -31,12 +33,19 @@ module.exports = {
   productionSourceMap: false,
   devServer: {
     port: port,
-    open: true,
+    open: false,
+    proxy: {
+      "/api": {
+        target: remoteServerPath,
+        secure: false,  //https
+        changeOrigin: true  //跨域
+      }
+    },
     overlay: {
       warnings: false,
       errors: true
-    },
-    before: require('./mock/mock-server.js')
+    }
+    // before: require('./mock/mock-server.js')  //注释可以移除mockJS/
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

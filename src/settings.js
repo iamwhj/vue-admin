@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: 'Vue Admin Template',
+  title: 'WPX GM',
 
   /**
    * @type {boolean} true | false
