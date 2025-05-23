@@ -19,7 +19,7 @@ import Layout from '@/layout'
  * meta : {
     roles: ['admin','editor']    control the page roles (you can set multiple roles)
     title: 'title'               the name show in sidebar and breadcrumb (recommend set)
-    icon: 'svg-name'             the icon show in the sidebar
+    icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
     breadcrumb: false            if set false, the item will hidden in breadcrumb(default is true)
     activeMenu: '/example/list'  if set path, the sidebar will highlight the path you set
   }
@@ -60,7 +60,7 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: 'Example', icon: 'el-icon-s-help' },
     children: [
       {
         path: 'table',
@@ -143,6 +143,7 @@ export const constantRoutes = [
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index'),
+        name: 'Menu2',
         meta: { title: 'menu2' }
       }
     ]
@@ -157,21 +158,6 @@ export const constantRoutes = [
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
-  },
-  {
-    path: '/role',
-    component: Layout,
-    meta: { title: '测试组件', icon: 'link' },
-    redirect: '/role/text',
-    children: [{
-      path: 'text',
-      component: () => import('../views/text'),
-      meta: { title: '测试组件1' }
-    }, {
-      path: 'estoppe',
-      component: () => import('../views/text/estoppe.vue'),
-      meta: { title: '禁言管理' }
-    }]
   },
 
   // 404 page must be placed at the end !!!
